@@ -1,96 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Uwazi Budget Design System - Kenya Flag Colors Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Kenya Flag Primary Colors */
+    --kenya-black: 0 0% 0%;
+    --kenya-red: 0 100% 37%;
+    --kenya-green: 120 100% 20%;
+    --kenya-white: 0 0% 100%;
+    
+    /* Extended Palette */
+    --trust-blue: 210 79% 51%;
+    --success-green: 122 39% 49%;
+    --warning-amber: 43 100% 50%;
+    --critical-red: 4 90% 58%;
+    
+    /* Core Design Tokens */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 120 100% 20%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 100% 37%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 120 100% 20%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 120 100% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 120 100% 35%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Custom Gradients */
+    --gradient-kenya: linear-gradient(135deg, hsl(var(--kenya-black)) 0%, hsl(var(--kenya-red)) 33%, hsl(var(--kenya-green)) 66%, hsl(var(--kenya-black)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(120 100% 25%) 0%, hsl(120 100% 15%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,102,0,0.5) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 12%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-glow-green: 0 0 30px rgba(0, 102, 0, 0.3);
+    --shadow-glow-red: 0 0 30px rgba(187, 0, 0, 0.3);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart Colors */
+    --chart-1: 120 100% 20%;
+    --chart-2: 0 100% 37%;
+    --chart-3: 210 79% 51%;
+    --chart-4: 43 100% 50%;
+    --chart-5: 0 0% 20%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 120 100% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 100% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 90% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 120 100% 35%;
   }
 }
 
@@ -99,7 +120,275 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Kenya Flag Stripe */
+  .kenya-stripe {
+    @apply h-1 w-full;
+    background: linear-gradient(90deg, 
+      hsl(var(--kenya-black)) 0% 25%, 
+      hsl(var(--kenya-red)) 25% 50%, 
+      hsl(var(--kenya-green)) 50% 75%, 
+      hsl(var(--kenya-black)) 75% 100%
+    );
+  }
+
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:scale-105 hover:shadow-xl;
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  .btn-hero-outline {
+    @apply px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300;
+    @apply bg-transparent border-2 border-white/30 text-white;
+    @apply hover:bg-white/10 hover:border-white/50;
+  }
+
+  /* Stat Card */
+  .stat-card {
+    @apply p-6 rounded-2xl transition-all duration-300;
+    @apply bg-card border border-border;
+    @apply hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Progress Bar Variants */
+  .progress-success {
+    @apply bg-success-green;
+  }
+
+  .progress-warning {
+    @apply bg-warning-amber;
+  }
+
+  .progress-danger {
+    @apply bg-critical-red;
+  }
+
+  /* Alert Badge */
+  .alert-badge {
+    @apply px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .alert-badge-critical {
+    @apply bg-critical-red/10 text-critical-red;
+  }
+
+  .alert-badge-warning {
+    @apply bg-warning-amber/10 text-warning-amber;
+  }
+
+  .alert-badge-success {
+    @apply bg-success-green/10 text-success-green;
+  }
+
+  /* Data Table */
+  .data-table {
+    @apply w-full border-collapse;
+  }
+
+  .data-table th {
+    @apply px-4 py-3 text-left text-sm font-semibold text-muted-foreground bg-muted/50;
+    @apply border-b border-border;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 text-sm;
+    @apply border-b border-border/50;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-muted/30;
+  }
+
+  /* Map Container */
+  .map-container {
+    @apply relative rounded-2xl overflow-hidden;
+    @apply border border-border;
+    @apply shadow-lg;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg;
+    @apply border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/60 backdrop-blur-lg;
+    @apply border border-white/10;
+  }
+
+  /* Animated Gradient Border */
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-0.5 rounded-2xl opacity-75;
+    background: linear-gradient(90deg, 
+      hsl(var(--kenya-green)), 
+      hsl(var(--kenya-red)), 
+      hsl(var(--kenya-green))
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+    z-index: -1;
+  }
+
+  /* Shimmer Loading */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+}
+
+@layer utilities {
+  /* Kenya Colors */
+  .text-kenya-black { color: hsl(var(--kenya-black)); }
+  .text-kenya-red { color: hsl(var(--kenya-red)); }
+  .text-kenya-green { color: hsl(var(--kenya-green)); }
+  .bg-kenya-black { background-color: hsl(var(--kenya-black)); }
+  .bg-kenya-red { background-color: hsl(var(--kenya-red)); }
+  .bg-kenya-green { background-color: hsl(var(--kenya-green)); }
+
+  /* Status Colors */
+  .text-success { color: hsl(var(--success-green)); }
+  .text-warning { color: hsl(var(--warning-amber)); }
+  .text-critical { color: hsl(var(--critical-red)); }
+  .text-trust { color: hsl(var(--trust-blue)); }
+
+  .bg-success { background-color: hsl(var(--success-green)); }
+  .bg-warning { background-color: hsl(var(--warning-amber)); }
+  .bg-critical { background-color: hsl(var(--critical-red)); }
+  .bg-trust { background-color: hsl(var(--trust-blue)); }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-kenya {
+    background: var(--gradient-kenya);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scale-in {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Counter Animation */
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+.counter {
+  transition: --num 2s ease-out;
+  counter-reset: num var(--num);
+}
+
+.counter::after {
+  content: counter(num);
 }
