@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard, Project } from "@/components/dashboard/ProjectCard";
-import projectHealth from "@/assets/images/project-health.jpg";
 import projectSchool from "@/assets/images/machakossolar.jpg";
 import projectRoad from "@/assets/images/kiambutechnical.jpg.jpg";
 import projectHealth from "@/assets/images/kisumuprimary.jpg";
