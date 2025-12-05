@@ -17,8 +17,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { ProjectCard, Project } from "@/components/dashboard/ProjectCard";
 import projectHealth from "@/assets/images/project-health.jpg";
-import projectSchool from "@/assets/images/project-school.jpg";
-import projectRoad from "@/assets/images/project-road.jpg";
+import projectSchool from "@/assets/images/machakossolar.jpg";
+import projectRoad from "@/assets/images/kiambutechnical.jpg.jpg";
+import projectHealth from "@/assets/images/kisumuprimary.jpg";
+import projectSchool from "@/assets/images/mombasaphase2.jpg";
+import projectRoad from "@/assets/images/nakuruwater.jpg.jpg";
 
 const SECTORS = ["All", "Health", "Education", "Infrastructure", "Water", "Agriculture", "Energy"];
 const STATUSES = ["All", "On Track", "Delayed", "At Risk", "Completed"];
@@ -50,7 +53,7 @@ const PROJECTS: Project[] = [
     status: "delayed",
     startDate: "Mar 2024",
     endDate: "Aug 2025",
-    image: projectSchool,
+    image: kisumuprimary,
     contractor: "East Africa Builders",
   },
   {
@@ -63,7 +66,7 @@ const PROJECTS: Project[] = [
     status: "at-risk",
     startDate: "Jun 2023",
     endDate: "Dec 2025",
-    image: projectRoad,
+    image: mombasaphase2,
     contractor: "China Roads & Bridges Corp",
   },
   {
@@ -77,7 +80,7 @@ const PROJECTS: Project[] = [
     status: "on-track",
     startDate: "Feb 2024",
     endDate: "Nov 2024",
-    image: projectHealth,
+    image: nakuruwater.jpg,
     contractor: "Aqua Solutions Kenya",
   },
   {
@@ -91,7 +94,7 @@ const PROJECTS: Project[] = [
     status: "on-track",
     startDate: "Apr 2024",
     endDate: "Mar 2026",
-    image: projectSchool,
+    image: kiambutechnical,
     contractor: "National Construction Co.",
   },
   {
@@ -104,7 +107,7 @@ const PROJECTS: Project[] = [
     status: "completed",
     startDate: "Jan 2023",
     endDate: "Oct 2024",
-    image: projectRoad,
+    image:machakossolar,
     contractor: "Green Energy Solutions",
   },
 ];
