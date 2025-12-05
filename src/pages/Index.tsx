@@ -69,7 +69,7 @@ const FEATURED_PROJECTS: Project[] = [
     status: "on-track",
     startDate: "Jan 2024",
     endDate: "Dec 2025",
-    image: projectHealth,
+    image: kiambutechnical,
     contractor: "Kenya Medical Infrastructure Ltd",
   },
   {
@@ -83,7 +83,7 @@ const FEATURED_PROJECTS: Project[] = [
     status: "delayed",
     startDate: "Mar 2024",
     endDate: "Aug 2025",
-    image: projectSchool,
+    image: kisumuprimary,
     contractor: "East Africa Builders",
   },
   {
@@ -96,7 +96,7 @@ const FEATURED_PROJECTS: Project[] = [
     status: "at-risk",
     startDate: "Jun 2023",
     endDate: "Dec 2025",
-    image: projectRoad,
+    image: mombasaphase2,
     contractor: "China Roads & Bridges Corp",
   },
 ];
