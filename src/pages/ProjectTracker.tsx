@@ -16,11 +16,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard, Project } from "@/components/dashboard/ProjectCard";
-import projectSchool from "@/assets/images/machakossolar.jpg";
-import projectRoad from "@/assets/images/kiambutechnical.jpg.jpg";
-import projectHealth from "@/assets/images/kisumuprimary.jpg";
-import projectSchool from "@/assets/images/mombasaphase2.jpg";
-import projectRoad from "@/assets/images/nakuruwater.jpg.jpg";
+import kiambutechnical from "@/assets/images/kiambutechnical.jpg";
+import kisumuprimary from "@/assets/images/kisumuprimary.jpg";
+import mombasaphase2 from "@/assets/images/mombasaphase2.jpg";
+import nakuruwater from "@/assets/images/nakuruwater.jpg";
+import machakossolar from "@/assets/images/machakossolar.jpg";
+import projectHealth from "@/assets/images/project-health.jpg";
 
 const SECTORS = ["All", "Health", "Education", "Infrastructure", "Water", "Agriculture", "Energy"];
 const STATUSES = ["All", "On Track", "Delayed", "At Risk", "Completed"];
@@ -79,7 +80,7 @@ const PROJECTS: Project[] = [
     status: "on-track",
     startDate: "Feb 2024",
     endDate: "Nov 2024",
-    image: nakuruwater.jpg,
+    image: nakuruwater,
     contractor: "Aqua Solutions Kenya",
   },
   {
@@ -106,7 +107,7 @@ const PROJECTS: Project[] = [
     status: "completed",
     startDate: "Jan 2023",
     endDate: "Oct 2024",
-    image:machakossolar,
+    image: machakossolar,
     contractor: "Green Energy Solutions",
   },
 ];

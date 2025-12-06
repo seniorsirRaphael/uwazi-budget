@@ -19,11 +19,9 @@ import { AlertCard, Alert } from "@/components/dashboard/AlertCard";
 import { ProjectCard, Project } from "@/components/dashboard/ProjectCard";
 import { KenyaMap } from "@/components/dashboard/KenyaMap";
 import heroBg from "@/assets/images/hero-bg.jpg";
-import projectSchool from "@/assets/images/machakossolar.jpg";
-import projectRoad from "@/assets/images/kiambutechnical.jpg.jpg";
-import projectHealth from "@/assets/images/kisumuprimary.jpg";
-import projectSchool from "@/assets/images/mombasaphase2.jpg";
-import projectRoad from "@/assets/images/nakuruwater.jpg.jpg";
+import kiambutechnical from "@/assets/images/kiambutechnical.jpg";
+import kisumuprimary from "@/assets/images/kisumuprimary.jpg";
+import mombasaphase2 from "@/assets/images/mombasaphase2.jpg";
 
 const RECENT_ALERTS: Alert[] = [
   {
