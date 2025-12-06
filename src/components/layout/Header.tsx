@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Bell, Search, User, LogIn } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Bell, Search, User, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileMenuButton } from "./Sidebar";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,11 +18,18 @@ interface HeaderProps {
 }
 
 export function Header({ onMobileMenuOpen }: HeaderProps) {
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
   const [notifications] = useState([
     { id: 1, title: "Budget Alert", message: "Nakuru County overspent by 15%", type: "warning" },
     { id: 2, title: "New Project", message: "Kisumu Water Project started", type: "info" },
     { id: 3, title: "Report Update", message: "Your report has been reviewed", type: "success" },
   ]);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <header className="sticky top-0 z-30 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -61,39 +70,43 @@ export function Header({ onMobileMenuOpen }: HeaderProps) {
                   <span className="text-xs text-muted-foreground">{notif.message}</span>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-center justify-center text-primary font-medium">
-                View all notifications
-              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* User Menu */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <User className="w-4 h-4 text-primary" />
-                </div>
+          {isAuthenticated && user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <User className="w-4 h-4 text-primary" />
+                  </div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel className="font-display">
+                  {user.name}
+                  <p className="text-xs text-muted-foreground font-normal capitalize">{user.role}</p>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link to="/dashboard">My Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleLogout} className="text-kenya-red">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Link to="/auth">
+              <Button variant="default" size="sm" className="gap-2">
+                <LogIn className="w-4 h-4" />
+                Sign In
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel className="font-display">My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Dashboard</DropdownMenuItem>
-              <DropdownMenuItem>My Reports</DropdownMenuItem>
-              <DropdownMenuItem>Followed Projects</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-kenya-red">Sign out</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Sign In Button */}
-          <Button variant="default" size="sm" className="hidden sm:flex gap-2">
-            <LogIn className="w-4 h-4" />
-            Sign In
-          </Button>
+            </Link>
+          )}
         </div>
       </div>
     </header>

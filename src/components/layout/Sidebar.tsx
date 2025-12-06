@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -13,12 +12,16 @@ import {
   ChevronRight,
   Search,
   Menu,
+  UserCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/images/logo.png";
 
 const navItems = [
   { path: "/", label: "Home", icon: LayoutDashboard },
+  { path: "/dashboard", label: "My Dashboard", icon: UserCircle, requiresAuth: true },
   { path: "/national-budget", label: "National Budget", icon: PieChart },
   { path: "/county-budget", label: "County Budget", icon: MapPin },
   { path: "/project-tracker", label: "Project Tracker", icon: FolderKanban },
@@ -35,15 +38,18 @@ interface SidebarProps {
 
 export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: SidebarProps) {
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
+
+  const filteredNavItems = navItems.filter(item => 
+    !item.requiresAuth || isAuthenticated
+  );
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-kenya-green to-kenya-green/70 flex items-center justify-center shadow-lg">
-            <span className="text-white font-display font-bold text-lg">U</span>
-          </div>
+          <img src={logo} alt="Uwazi Budget" className="w-10 h-10 rounded-xl" />
           <AnimatePresence>
             {!collapsed && (
               <motion.div
@@ -90,7 +96,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto scrollbar-thin">
-        {navItems.map((item) => {
+        {filteredNavItems.map((item) => {
           const isActive = location.pathname === item.path;
           return (
             <NavLink
