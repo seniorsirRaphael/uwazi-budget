@@ -193,7 +193,7 @@ export default function CitizenDashboard({ user }: Props) {
                 <FileText className="w-5 h-5 text-trust" />
                 Your Reports
               </h3>
-              <Link to="/report-issue">
+              <Link to="/report">
                 <Button variant="outline" size="sm" className="gap-2">
                   Submit Report
                 </Button>
