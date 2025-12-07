@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Camera,
   MapPin,
-  Upload,
   Send,
   AlertTriangle,
-  FileImage,
   X,
   CheckCircle,
   MessageSquare,
@@ -30,6 +29,7 @@ const COUNTIES = [
 
 export default function ReportIssue() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     category: "",
     county: "",
@@ -120,7 +120,7 @@ export default function ReportIssue() {
             <Button variant="kenya" onClick={() => setSubmitted(false)}>
               Submit Another Report
             </Button>
-            <Button variant="outline" onClick={() => window.location.href = "/"}>
+            <Button variant="outline" onClick={() => navigate("/")}>
               Back to Dashboard
             </Button>
           </div>
